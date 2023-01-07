@@ -16,7 +16,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-<<<<<<< HEAD
 
 Route::get('/login', function () {
     return view('login');
@@ -25,8 +24,13 @@ Route::get('/login', function () {
 Route::get('/register', function () {
     return view('register');
 });
-Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-=======
->>>>>>> parent of 678f771 (Updated or added for authentication.)
+Route::get('/home', [App\Http\Controllers\LoginController::class, 'home'])->name('home');
+
+Route::get('/logout', [App\Http\Controllers\LoginController::class, 'logout'])->name('logout');
+
+Route::post('/login1', [App\Http\Controllers\LoginController::class, 'login1'])->name('login1');
+
+Route::post('/register1', [App\Http\Controllers\LoginController::class, 'register1'])->name('register1');
+
+

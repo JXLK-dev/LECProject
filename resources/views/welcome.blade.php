@@ -10,12 +10,18 @@
 </head>
 <body>
     <h1 style="text-align: center; margin-top:40px" >Write Your To Do List Now!</h1>
-    <div style="text-align:center">
-        <img id="logo" src="{{ asset('storage/asset_image/logo.png')}}" alt="">
-    </div>
-    <div style="text-align: center;">
-        <a href="/login" class="btn btn-light" style="margin: 0px 20px 0px 20px">Login</a>
-        <a href="/register" class="btn btn-light" style="margin: 0px 20px 0px 20px">Sign Up</a>
-    </div>
+    @auth
+        <div style="text-align: center;">
+           <a href="/logout" class="btn btn-light" style="margin: 0px 20px 0px 20px">Logout</a>
+        </div>
+    @else
+        <div style="text-align:center">
+           <img id="logo" src="{{ asset('storage/asset_image/logo.png')}}" alt="">
+        </div>
+        <div style="text-align: center;">
+           <a href="/login" class="btn btn-light" style="margin: 0px 20px 0px 20px">Login</a>
+            <a href="/register" class="btn btn-light" style="margin: 0px 20px 0px 20px">Sign Up</a>
+        </div>
+    @endauth
 </body>
 </html>

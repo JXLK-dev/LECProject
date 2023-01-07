@@ -25,7 +25,7 @@
                 </div>
             @endif
             <div class="card-body" style="background-color: #97DECE">
-                <form action="/register" method="post">
+                <form action="/register1" method="post">
                     @csrf
                     <div class="form-group">
                         <label for="name">Name</label>

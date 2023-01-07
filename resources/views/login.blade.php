@@ -26,11 +26,11 @@
             @endif
             <div class="card-body" style="background-color: #97DECE">
 
-                <form action="/login" method="post">
+                <form action="/login1" method="post">
                     @csrf
                     <div class="form-group">
                         <label for="email">Email</label><br>
-                        <input type="email" class="form-control" id="email" name="email" placeholder="Input your email" value="">
+                        <input type="email" class="form-control" id="email" name="email" value = "{{Cookie::get('emailcookie')}}" placeholder="Input your email" value="">
                     </div><br>
                     <div class="form-group">
                         <label for="password">Password</label><br>
