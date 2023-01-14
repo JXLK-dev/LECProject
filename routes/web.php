@@ -34,3 +34,5 @@ Route::post('/login1', [App\Http\Controllers\LoginController::class, 'login1'])-
 Route::post('/register1', [App\Http\Controllers\LoginController::class, 'register1'])->name('register1');
 
 Route::get('/add', [PageController::class, 'addReminder']);
+
+Route::get('/detail/{reminder_id}', [PageController::class, 'detail']);

@@ -32,6 +32,10 @@ input[type="text"]:focus {
     outline:none;
 }
 
+textarea {
+    border-radius: 10px;
+}
+
 input[type="file"] {
     margin-top: 5px;
 }
@@ -57,4 +61,43 @@ input[type="file"]::-webkit-file-upload-button:hover{
     display: flex;
     justify-content: space-around;
     margin-top: 50px;
+}
+
+.edit-picture {
+    position: relative;
+    overflow: hidden;
+    top: 40px;
+    left:90%;
+    width: 24px;
+    height: 30px;
+    visibility: hidden;
+}
+
+.picture-bind:hover .edit-picture{
+    visibility: visible;
+}
+
+.edit-picture:hover {
+    color:#439A97;
+}
+
+.editpic {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+}
+
+.edit-container #desc {
+    margin-top: 20px;
+    width:100%;
+    border: none;
+}
+
+.edit-container #desc:active, #desc:focus {
+    outline:auto;
+}
+
+.back:hover {
+    color:#439A97;
 }

@@ -12,7 +12,7 @@
                     <input type="text" id= "title" name="title">
                 </label>
                 <label for="desc">Description
-                    <input type="text" id= "desc" name="desc">
+                    <textarea type="text" id= "desc" name="desc"></textarea>
                 </label>
                 <label for="image">Image
                     <input type="file" id="image" name="image">
