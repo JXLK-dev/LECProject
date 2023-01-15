@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\ReminderDataController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,9 +25,9 @@ Route::get('/register', [PageController::class, 'register']);
 Route::group(
     ['middleware' => ['authentication']],
     function () {
-        Route::get('/add', [PageController::class, 'addReminder']);
         Route::get('/home', [PageController::class, 'home'])->name('home');
         Route::get('/detail/{reminder_id}', [PageController::class, 'detail']);
-        Route::get('/add', [PageController::class, 'addReminder']);
+        Route::get('/add', [PageController::class, 'add']);
+        Route::post('/add', [ReminderDataController::class, 'addReminder']);
     }
 );

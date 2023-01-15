@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-class PageController extends Controller
+class PageController extends ReminderDataController
 {
     public function login()
     {
@@ -18,9 +18,10 @@ class PageController extends Controller
     }
     public function home()
     {
-        return view('home');
+        $data = $this->loadReminder();
+        return view('home')->with('lists', $data);
     }
-    public function addReminder()
+    public function add()
     {
         return view('add');
     }
