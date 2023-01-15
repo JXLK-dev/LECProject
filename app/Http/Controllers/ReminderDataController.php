@@ -27,7 +27,9 @@ class ReminderDataController extends Controller
     public function updateReminder()
     {
     }
-    public function deleteReminder()
+    public function deleteReminder($reminder_id)
     {
+        $deleted = reminder::where('id', $reminder_id)->delete();
+        return redirect()->back();
     }
 }
