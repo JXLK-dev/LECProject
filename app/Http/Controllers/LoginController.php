@@ -9,11 +9,13 @@ use App\Models\User;
 
 class LoginController extends Controller
 {
-    public function home(){
-        return view('\welcome');
+    public function home()
+    {
+        return view('\navbar');
     }
 
-    public function login1(Request $request){
+    public function login1(Request $request)
+    {
         // $request->all();
         // dd($request);
         $auth = [
@@ -23,16 +25,17 @@ class LoginController extends Controller
         ];
         $remember = $request->remember;
 
-        if(Auth::attempt($auth)){
-            if($remember){
-                Cookie::queue('emailcookie',$request->email,300);
+        if (Auth::attempt($auth)) {
+            if ($remember) {
+                Cookie::queue('emailcookie', $request->email, 300);
             }
             return redirect()->route('home');
         }
         return view('login');
     }
 
-    public function register1(Request $request){
+    public function register1(Request $request)
+    {
         // $request->all();
         // dd($request);
         $request->validate([
@@ -44,12 +47,13 @@ class LoginController extends Controller
         $password = bcrypt($request->password);
         $data = User::create($request->all());
         $data->save();
-        $data->update(['password'=>$password]);
+        $data->update(['password' => $password]);
         return redirect()->route('home');
     }
 
-    public function logout(){
+    public function logout()
+    {
         Auth::logout();
-        return redirect()->route('home');
+        return redirect()->to('/');
     }
 }

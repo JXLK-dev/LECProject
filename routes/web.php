@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\PageController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,26 +15,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('/login', function () {
-    return view('login');
-});
-
-Route::get('/register', function () {
-    return view('register');
-});
-
-Route::get('/home', [App\Http\Controllers\LoginController::class, 'home'])->name('home');
-
-Route::get('/logout', [App\Http\Controllers\LoginController::class, 'logout'])->name('logout');
-
-Route::post('/login1', [App\Http\Controllers\LoginController::class, 'login1'])->name('login1');
-
-Route::post('/register1', [App\Http\Controllers\LoginController::class, 'register1'])->name('register1');
-
-Route::get('/add', [PageController::class, 'addReminder']);
-
-Route::get('/detail/{reminder_id}', [PageController::class, 'detail']);
+Route::get('/', [PageController::class, 'index']);
+Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
+Route::post('/login1', [LoginController::class, 'login1'])->name('login1');
+Route::post('/register1', [LoginController::class, 'register1'])->name('register1');
+Route::get('/login', [PageController::class, 'login']);
+Route::get('/register', [PageController::class, 'register']);
+Route::group(
+    ['middleware' => ['authentication']],
+    function () {
+        Route::get('/add', [PageController::class, 'addReminder']);
+        Route::get('/home', [PageController::class, 'home'])->name('home');
+        Route::get('/detail/{reminder_id}', [PageController::class, 'detail']);
+        Route::get('/add', [PageController::class, 'addReminder']);
+    }
+);
