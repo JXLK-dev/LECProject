@@ -29,7 +29,7 @@
         <div class="collapse navbar-collapse justify-content-between" id="navbarMenu">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/todolist"><i class="bi bi-list-check"></i> To
+                    <a class="nav-link active" aria-current="page" href="/home"><i class="bi bi-list-check"></i> To
                         do List</a>
                 </li>
                 {{-- <li class="nav-item">
