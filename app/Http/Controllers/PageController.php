@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\reminder;
+
 class PageController extends ReminderDataController
 {
     public function login()
@@ -26,8 +28,9 @@ class PageController extends ReminderDataController
         return view('add');
     }
 
-    public function detail()
+    public function detail($reminder_id)
     {
-        return view('detail');
+        $data = reminder::where('id', $reminder_id)->get()[0];
+        return view('detail')->with('reminder_detail', $data);
     }
 }

@@ -11,7 +11,7 @@
                         <a class="detail-link" href="">{{ $list->title }}</a>
                     </div>
                     <div class="list-menu">
-                        {{-- <a class="btn" href=""><i class="bi bi-pencil-square"></i></a> --}}
+                        <a class="btn" href="/detail/{{ $list->id }}"><i class="bi bi-pencil-square"></i></a>
                         <a class="btn del" href="/delete/{{ $list->id }}"><i class="bi bi-trash"></i></a>
                     </div>
                 </label>

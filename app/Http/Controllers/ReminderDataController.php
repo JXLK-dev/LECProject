@@ -24,8 +24,13 @@ class ReminderDataController extends Controller
         $reminderData = $data->reminders;
         return $reminderData;
     }
-    public function updateReminder()
+    public function updateReminder(Request $request, $reminder_id)
     {
+        $data = reminder::find($reminder_id);
+        $data->title = $request->title;
+        $data->description = $request->desc;
+        $data->save();
+        return redirect()->to('home');
     }
     public function deleteReminder($reminder_id)
     {
