@@ -16,8 +16,7 @@
                                 <i class="bi bi-pencil-square" style="font-size: 24px;"></i>
                                 <input type="file" id="image" name="image" class="editpic">
                             </div>
-                            <img
-                                src="https://t3.ftcdn.net/jpg/03/45/05/92/360_F_345059232_CPieT8RIWOUk4JqBkkWkIETYAkmz2b75.jpg">
+                            <img src="{{asset('asset_image/'.$reminder_detail->image)}}" alt="" style="width:20%">
                         </div>
                         <p>
                             <textarea type="textarea" cols="40" rows="3" id="desc" name="desc">{{ $reminder_detail->description }}</textarea>
