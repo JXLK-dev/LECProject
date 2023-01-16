@@ -1,4 +1,5 @@
 <link rel="stylesheet" href="{{ URL::asset('css/app.css') }}">
+<script src="{{ URL::asset('js/detail.js') }}"></script>
 
 <div class="list-container">
     <ul class="list-group">
@@ -6,13 +7,27 @@
             <li class="list-group-item">
                 <label class="form-check-label" for="{{ $list->title }}">
                     <div class="checkbox-bind">
-                        <input class="form-check-input me-1" type="checkbox" value="{{ $list }}"
+                        <input class="form-check-input me-1" type="checkbox" value="{{ $list->title }}"
                             id="{{ $list->title }}">
-                        <a class="detail-link" href="">{{ $list->title }}</a>
+                        <a class="detail-link" href="/detail/{{ $list->id }}">{{ $list->title }}</a>
                     </div>
                     <div class="list-menu">
-                        <a class="btn" href="/detail/{{ $list->id }}"><i class="bi bi-pencil-square"></i></a>
-                        <a class="btn del" href="/delete/{{ $list->id }}"><i class="bi bi-trash"></i></a>
+                        <button class="btn del"><i class="bi bi-trash" onclick="show('popup')"></i></button>
+                        <div class="popup" id="popup">
+                            <div class="center-popup">
+                                <div class="popup-header">
+                                    <h5>Delete Reminder?</h5>
+                                    <button type="button" class="x" onclick="hide('popup')">&times;</button>
+                                </div>
+                                <div class="popup-body">
+                                    <h6>Delete {{ $list->title }}?</h6>
+                                </div>
+                                <div class="btn-group">
+                                    <button class="btn" onclick="hide('popup')">No</button>
+                                    <a href="/delete/{{ $list->id }}" class="btn del">Yes</a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </label>
             </li>

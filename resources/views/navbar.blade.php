@@ -29,7 +29,7 @@
         <div class="collapse navbar-collapse justify-content-between" id="navbarMenu">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/home"><i class="bi bi-list-check"></i> To
+                    <a class="nav-link @if(Request::path() == 'home') active @endif" href="/home"><i class="bi bi-list-check"></i> To
                         do List</a>
                 </li>
                 {{-- <li class="nav-item">
@@ -42,7 +42,7 @@
             <div class="d-flex flex-wrap">
                 <ul class="navbar-nav">
                     <li>
-                        <a class="nav-link" href="/add">
+                        <a class="nav-link @if(Request::path() == 'add') active @endif" href="/add">
                             <i class="bi bi-plus-circle-fill"></i> Add Reminder
                         </a>
                     </li>

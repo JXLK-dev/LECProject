@@ -66,8 +66,8 @@ input[type="file"]::-webkit-file-upload-button:hover{
 .edit-picture {
     position: relative;
     overflow: hidden;
-    top: 40px;
-    left:90%;
+    top: 30px;
+    left: 300px;
     width: 24px;
     height: 30px;
     visibility: hidden;

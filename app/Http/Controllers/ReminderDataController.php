@@ -36,9 +36,9 @@ class ReminderDataController extends Controller
     public function updateReminder(Request $request, $reminder_id)
     {
         $request->validate([
-            'image'=>'required|mimes:png,jpg,jpeg',
-            'title' => 'required|min:5|max:25',
-            'desc' => 'required|min:5'
+            'image'=>'mimes:png,jpg,jpeg',
+            'title' => 'min:5|max:25',
+            'desc' => 'min:5'
         ]);
         $data = reminder::find($reminder_id);
         $data->title = $request->title;
@@ -46,8 +46,8 @@ class ReminderDataController extends Controller
         if($request->hasFile('image')){
             $request->file('image')->move('asset_image/', $request->file('image')->getClientOriginalName());
             $data->image = $request->file('image')->getClientOriginalName();
-            $data->save();
         }
+        $data->save();
         return redirect()->to('home');
     }
     public function deleteReminder($reminder_id)

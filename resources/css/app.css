@@ -91,3 +91,68 @@
 .btn-primary:focus-visible {
     background-color: #439A97;
 }
+
+
+.popup{
+    position:fixed;
+    visibility: hidden;
+    opacity:0;
+    transition:0.5s;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    top:0px;
+    left:0px;
+    width:100vw;
+    height:100vh;
+    z-index: 100;
+    cursor:default;
+}
+
+.show {
+    visibility: visible;
+    opacity: 1;
+    transition:0.5s;
+}
+
+.center-popup{
+    position:relative;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    -webkit-box-align: center;
+    width:200px;
+    border:2px solid #439A97;
+    background-color: white;
+    border-radius: 5px;
+}
+
+.popup-header{
+    display: flex;
+    padding:5px;
+    border-bottom: 2px solid #62B6B7;
+    border-radius: 5px 5px 0px 0px;
+    justify-content: space-between;
+    width: 90%;
+}
+
+.popup-body {
+    margin: 20px;
+}
+
+.popup .btn{
+    margin:15px;
+    border:1px solid #439A97;
+}
+
+.x{
+    background: none;
+    border: none;
+    font-size: 36px;
+}
+
+.x:hover{
+    cursor: pointer;
+}
