@@ -3,9 +3,9 @@ function read(input) {
         var readImg = new FileReader();
 
         readImg.onload = function (e) {
-            $('#image').attr('src', e.target.result).width(200).height(200);
+            $('#img').attr('src', e.target.result);
         };
 
-        readFiles.readAsDataURL(input.files[0]);
+        readImg.readAsDataURL(input.files[0]);
     }
 }

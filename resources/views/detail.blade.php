@@ -12,7 +12,7 @@
             <a class="btn back" onclick='history.back()'>
                 < Back</a>
                     <div class="edit-container">
-                        <h2><input type="text" id="title" name="title" value="{{ $reminder_detail->title }}" onkeypress="show('save_btn')"
+                        <h2><input type="text" id="title" name="title" value="{{ $reminder_detail->title }}" onkeydown="show('save_btn')"
                                 style="text-align: center">
                         </h2>
                         <div class="picture-bind">
@@ -23,7 +23,7 @@
                             <img id="img" src="{{asset('asset_image/'.$reminder_detail->image)}}" alt="{{ $reminder_detail->title }}" style="display:block; width:300px; margin:-10px auto 10px auto;">
                         </div>
                         <p>
-                            <textarea type="textarea" cols="40" rows="3" id="desc" name="desc" onkeypress="show('save_btn')">{{ $reminder_detail->description }}</textarea>
+                            <textarea type="textarea" cols="40" rows="3" id="desc" name="desc" onkeydown="show('save_btn')">{{ $reminder_detail->description }}</textarea>
                         </p>
                     </div>
                     <div class="btn-container">
