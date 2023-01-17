@@ -157,3 +157,7 @@
 .x:hover{
     cursor: pointer;
 }
+
+.lbl {
+    font-weight:500;
+}

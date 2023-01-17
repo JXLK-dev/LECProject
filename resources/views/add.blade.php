@@ -11,13 +11,13 @@
             @csrf
             <h2>New Reminder</h2>
             <div class="input-container">
-                <label for="title">Title
+                <label class="lbl" for="title">Title
                     <input type="text" id="title" name="title">
                 </label>
-                <label for="desc">Description
+                <label class="lbl" for="desc">Description
                     <textarea type="text" id="desc" name="desc"></textarea>
                 </label>
-                <label for="image">Image
+                <label class="lbl" for="image">Image
                     <input type="file" id="image" name="image" onchange="read(this)">
                 </label>
                 <img src="" alt="" id="img" style="width:300px">

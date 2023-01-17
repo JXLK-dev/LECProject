@@ -27,10 +27,17 @@ class PageController extends ReminderDataController
     {
         return view('add');
     }
-
     public function detail($reminder_id)
     {
         $data = reminder::where('id', $reminder_id)->get()[0];
         return view('detail')->with('reminder_detail', $data);
+    }
+    public function editprofile()
+    {
+        return view('editprofile');
+    }
+    public function editpassword()
+    {
+        return view('editpassword');
     }
 }

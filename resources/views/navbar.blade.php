@@ -61,6 +61,9 @@
                             <a class="dropdown-item" href="/editprofile">Edit Profile</a>
                         </li>
                         <li>
+                            <a class="dropdown-item" href="/editpassword">Edit Password</a>
+                        </li>
+                        <li>
                             <a class="dropdown-item" href="/logout">Log Out</a>
                         </li>
                     </ul>
