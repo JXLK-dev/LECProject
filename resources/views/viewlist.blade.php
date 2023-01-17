@@ -12,18 +12,18 @@
                         <a class="detail-link" href="/detail/{{ $list->id }}">{{ $list->title }}</a>
                     </div>
                     <div class="list-menu">
-                        <button class="btn del"><i class="bi bi-trash" onclick="show('popup')"></i></button>
-                        <div class="popup" id="popup">
+                        <button class="btn del"><i class="bi bi-trash" onclick="show('popup-{{ $list->id }}')"></i></button>
+                        <div class="popup" id="popup-{{ $list->id }}">
                             <div class="center-popup">
                                 <div class="popup-header">
                                     <h5>Delete Reminder?</h5>
-                                    <button type="button" class="x" onclick="hide('popup')">&times;</button>
+                                    <button type="button" class="x" onclick="hide('popup-{{ $list->id }}')">&times;</button>
                                 </div>
                                 <div class="popup-body">
                                     <h6>Delete {{ $list->title }}?</h6>
                                 </div>
                                 <div class="btn-group">
-                                    <button class="btn" onclick="hide('popup')">No</button>
+                                    <button class="btn" onclick="hide('popup-{{ $list->id }}')">No</button>
                                     <a href="/delete/{{ $list->id }}" class="btn del">Yes</a>
                                 </div>
                             </div>
