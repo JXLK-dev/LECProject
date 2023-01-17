@@ -85,7 +85,7 @@ class LoginController extends Controller
             'newpassword' => 'required|min:5|max:20',
         ]);
         $user = User::find(Auth::id());
-        if (Hash::check($user->password, $user->password)) {
+        if (Hash::check($request->oldpassword, $user->password)) {
             $user->password = bcrypt($request->newpassword);
             $user->save();
             return redirect()->to('home');
