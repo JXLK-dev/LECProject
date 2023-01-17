@@ -55,7 +55,7 @@ class LoginController extends Controller
         $data = User::create($request->all());
         $data->save();
         $data->update(['password' => $password]);
-        return redirect()->route('home');
+        return redirect()->to('login');
     }
 
     public function logout()

@@ -27,7 +27,7 @@ class ReminderDataController extends Controller
             $data->image = 'No Image';
         }
         $data->save();
-        return redirect()->back();
+        return redirect()->to('home');
     }
     public function loadReminder()
     {
@@ -39,7 +39,7 @@ class ReminderDataController extends Controller
     {
         $request->validate([
             'image' => 'mimes:png,jpg,jpeg',
-            'title' => 'min:5|max:25',
+            'title' => 'required|min:5|max:25',
             'desc' => 'min:5'
         ]);
         $data = reminder::find($reminder_id);
