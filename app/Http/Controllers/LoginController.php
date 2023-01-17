@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cookie;
 use App\Models\User;
+use Illuminate\Support\Facades\Redirect;
 
 class LoginController extends Controller
 {
@@ -18,6 +19,10 @@ class LoginController extends Controller
     {
         // $request->all();
         // dd($request);
+        $request->validate([
+            'email' => 'required|email:rfc',
+            'password' => 'required|min:5|max:20',
+        ]);
         $auth = [
             'email' => $request->email,
             'password' => $request->password
@@ -30,8 +35,10 @@ class LoginController extends Controller
                 Cookie::queue('emailcookie', $request->email, 300);
             }
             return redirect()->route('home');
+        } else {
+            $auth_message = 'Email may not exist or wrong password';
+            return Redirect::back()->withErrors(['auth' => $auth_message]);
         }
-        return view('login');
     }
 
     public function register1(Request $request)
