@@ -11,8 +11,8 @@ class ReminderDataController extends Controller
 {
     public function addReminder(Request $request)
     {
-         $request->validate([
-            'image'=>'required|mimes:png,jpg,jpeg',
+        $request->validate([
+            'image' => 'mimes:png,jpg,jpeg',
             'title' => 'required|min:5|max:25',
             'desc' => 'required|min:5'
         ]);
@@ -20,11 +20,13 @@ class ReminderDataController extends Controller
         $data->user_ID = Auth::id();
         $data->title = $request->title;
         $data->description = $request->desc;
-        if($request->hasFile('image')){
+        if ($request->hasFile('image')) {
             $request->file('image')->move('asset_image/', $request->file('image')->getClientOriginalName());
             $data->image = $request->file('image')->getClientOriginalName();
-            $data->save();
+        } else {
+            $data->image = 'No Image';
         }
+        $data->save();
         return redirect()->back();
     }
     public function loadReminder()
@@ -36,14 +38,14 @@ class ReminderDataController extends Controller
     public function updateReminder(Request $request, $reminder_id)
     {
         $request->validate([
-            'image'=>'mimes:png,jpg,jpeg',
+            'image' => 'mimes:png,jpg,jpeg',
             'title' => 'min:5|max:25',
             'desc' => 'min:5'
         ]);
         $data = reminder::find($reminder_id);
         $data->title = $request->title;
         $data->description = $request->desc;
-        if($request->hasFile('image')){
+        if ($request->hasFile('image')) {
             $request->file('image')->move('asset_image/', $request->file('image')->getClientOriginalName());
             $data->image = $request->file('image')->getClientOriginalName();
         }
