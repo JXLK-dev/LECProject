@@ -105,5 +105,6 @@ input[type="file"]::-webkit-file-upload-button:hover{
 .save {
     background-color: #62B6B7;
     border:#439A97;
-    visibility: hidden;
+    /* visibility: hidden; */
+    display: none;
 }
