@@ -22,7 +22,11 @@
     transition: 0.5s;
 }
 
-.form-check-label:hover {
+.list-group-item {
+    display: flex;
+}
+
+.list-group-item:hover {
     cursor: pointer;
     background-color: rgb(98, 182, 183, 0.2);
     transition: 0.5s;
@@ -39,18 +43,13 @@
     width:640px;
 }
 
-.list-menu .btn {
+.list-menu .del {
     font-size: large;
     border-radius: 50%;
     visibility: hidden;
 }
 
-.list-menu .btn:hover {
-    /* color:#4f8e8f; */
-    background-color: rgba(255,255,255, 0.5);
-}
-
-.form-check-label:hover .list-menu .btn{
+.list-group-item:hover .del{
     visibility: visible;
 }
 
