@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cookie;
 use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;
 
 class LoginController extends Controller
@@ -62,5 +63,36 @@ class LoginController extends Controller
     {
         Auth::logout();
         return redirect()->to('/');
+    }
+    public function updateProfile(Request $request)
+    {
+        $request->validate([
+            'name' => 'required|min:5|max:20',
+            'email' => 'required|email:rfc',
+            'gender' => 'required'
+        ]);
+        $data = User::find(Auth::id());
+        $data->name = $request->name;
+        $data->email = $request->email;
+        $data->gender = $request->gender;
+        $data->save();
+        return redirect()->to('login');
+    }
+    public function updatePassword(Request $request)
+    {
+        $request->validate([
+            'oldpassword' => 'required|min:5|max:20',
+            'newpassword' => 'required|min:5|max:20',
+        ]);
+        $user = User::find(Auth::id());
+        if (Hash::check($user->password, $user->password)) {
+            $user->password = bcrypt($request->newpassword);
+            $user->save();
+            return redirect()->to('home');
+        } else {
+            return redirect()->back()->withErrors([
+                'wrong' => 'Wrong password, please try again'
+            ]);
+        }
     }
 }

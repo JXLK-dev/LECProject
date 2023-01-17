@@ -31,5 +31,9 @@ Route::group(
         Route::post('/add', [ReminderDataController::class, 'addReminder']);
         Route::get('/delete/{reminder_id}', [ReminderDataController::class, 'deleteReminder']);
         Route::post('/update/{reminder_id}', [ReminderDataController::class, 'updateReminder']);
+        Route::get('/editprofile', [PageController::class, 'editprofile']);
+        Route::post('/editprofile', [LoginController::class, 'updateProfile']);
+        Route::get('/editpassword', [PageController::class, 'editpassword']);
+        Route::post('/editpassword', [LoginController::class, 'updatePassword']);
     }
 );
