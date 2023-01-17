@@ -9,13 +9,17 @@
                 <li class="list-group-item">
                     <label class="form-check-label" for="{{ $list->title }}">
                         <div class="checkbox-bind">
-                            <input class="form-check-input me-1" type="radio" onclick="this.form.submit()" value="{{ $list->id }}" class="check-list" name="reminder" @if($list->checked == 1) checked @endif>
+                            @if($list->checked == 1)
+                                ☑️
+                            @endif
+                            <input class="form-check-input me-1" type="radio" onclick="this.form.submit()" value="{{ $list->id }}" class="check-list" name="reminder">
                             {{-- <input class="form-check-input me-1" type="checkbox" value="{{ $list->title }}"
                                 id="{{ $list->title }}"> --}}
                             <a class="detail-link" href="/detail/{{ $list->id }}" id="{{ $list->id }}" style="text-decoration:@if($list->checked == 1) line-through @else none @endif">{{ $list->title }}</a>
                         </div>
                         <div class="list-menu">
-                            <button class="btn del"><i class="bi bi-trash" onclick="show('popup-{{ $list->id }}')"></i></button>
+                            <a href="/delete/{{ $list->id }}" class="btn del"><i class="bi bi-trash"></i></a>
+                            {{-- <button class="btn del"><i class="bi bi-trash" onclick="show('popup-{{ $list->id }}')"></i></button>
                             <div class="popup" id="popup-{{ $list->id }}">
                                 <div class="center-popup">
                                     <div class="popup-header">
@@ -30,7 +34,7 @@
                                         <a href="/delete/{{ $list->id }}" class="btn del">Yes</a>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
                         </div>
                     </label>
                 </li>
