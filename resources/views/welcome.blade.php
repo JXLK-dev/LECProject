@@ -14,8 +14,8 @@
 </head>
 
 <body style="text-align:center">
-    <img src="{{ URL::asset('asset_image/navbar-logo-cropped.png') }}" alt="Logo">
-    <h1 style="text-align: center; margin-top:40px">To Do List</h1>
+    {{-- <h1 style="text-align: center; margin-top:40px">To Do List</h1> --}}
+    <img src="{{ URL::asset('asset_image/logo.png') }}" alt="Tick All Logo">
     @auth
         <div style="text-align: center;">
             <a href="/logout" class="btn btn-light" style="margin: 0px 20px 0px 20px">Logout</a>
