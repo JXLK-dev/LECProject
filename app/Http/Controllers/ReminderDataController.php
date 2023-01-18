@@ -57,4 +57,13 @@ class ReminderDataController extends Controller
         $deleted = reminder::where('id', $reminder_id)->delete();
         return redirect()->back();
     }
+    public function checkReminder(Request $request)
+    {
+        $reminder_id = $request->input('reminder');
+        $data = reminder::where('id', $reminder_id)->get()[0];
+        if($data->checked == 0) $data->checked = 1;
+        else $data->checked = 0;
+        $data->save();
+        return redirect()->to('home');
+    }
 }

@@ -35,5 +35,6 @@ Route::group(
         Route::post('/editprofile', [LoginController::class, 'updateProfile']);
         Route::get('/editpassword', [PageController::class, 'editpassword']);
         Route::post('/editpassword', [LoginController::class, 'updatePassword']);
+        Route::post('/check', [ReminderDataController::class, 'checkReminder']);
     }
 );
