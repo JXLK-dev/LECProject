@@ -13,7 +13,8 @@
     </script>
 </head>
 
-<body>
+<body style="text-align:center">
+    <img src="{{ URL::asset('asset_image/navbar-logo-cropped.png') }}" alt="Logo">
     <h1 style="text-align: center; margin-top:40px">To Do List</h1>
     @auth
         <div style="text-align: center;">
